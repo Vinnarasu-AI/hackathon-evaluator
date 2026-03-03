@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackathon Project Evaluator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Hackathon Project Evaluator</h1>
+            <p>AI-powered code evaluation for hackathon projects</p>
+            <div id="backend-status" class="status-indicator">Backend: Checking connection...</div>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <h2>Enter GitHub Repository URL</h2>
+                <div class="input-group">
+                    <input type="url" id="github-url" placeholder="https://github.com/username/repository" required>
+                    <button id="evaluate-btn" onclick="evaluateProject()">
+                        Evaluate Project
+                    </button>
+                </div>
+            </div>
+
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Evaluating project... This may take a few minutes.</p>
+                <div class="progress-bar">
+                    <div id="progress" class="progress"></div>
+                </div>
+                <p id="status">Cloning repository...</p>
+            </div>
+
+            <div id="results" class="results hidden">
+                <h2>Evaluation Results</h2>
+                <div class="summary">
+                    <h3 id="project-name"></h3>
+                    <div class="score-circle">
+                        <span id="total-score"></span>
+                        <span id="max-score"></span>
+                    </div>
+                </div>
+
+                <div id="criteria-results" class="criteria-grid">
+                    <!-- Results will be inserted here -->
+                </div>
+
+                <div class="export-buttons">
+                    <button onclick="exportJSON()">Export JSON</button>
+                    <button onclick="exportPDF()">Export PDF</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
